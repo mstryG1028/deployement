@@ -1,0 +1,25 @@
+
+services:
+  server:
+    build: ./server
+    container_name: express-server
+    ports:
+      - "4000:4000"
+    networks:
+      - fullstack-net
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    container_name: react-client
+    ports:
+      - "5174:3000"
+    depends_on:
+      - server
+    networks:
+      - fullstack-net
+    restart: unless-stopped
+
+networks:
+  fullstack-net:
+    driver: bridge
