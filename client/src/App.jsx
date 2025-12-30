@@ -9,9 +9,7 @@ const App = () => {
     // fetch("http://localhost:4000/api/message")
     // thts why we use this
     // fetch("/api/message")
-     fetch(`${import.meta.env.VITE_API_URL}/api/message`, {
-      credentials: "include",
-    })
+    fetch("/api/message")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));
   }, []);
